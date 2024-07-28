@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, ListGroup, ListGroupItem } from "reactstrap";
+import { Button, Container, Input, Label, ListGroup, ListGroupItem } from "reactstrap";
 
 export default function Question({
   question,
@@ -20,20 +20,21 @@ export default function Question({
       </div>
       <div className="question-text">{question.text}</div>
       <ListGroup className="answer-section">
-        {question.options.map((option) => (
+        {question.options.map((option, index) => (
           <ListGroupItem
             key={option}
             className="answer-option"
             active={selectedAnswer === option}
           >
-            <input
+            <Input
               type="radio"
               name={`question-${currentQuestionIndex}`}
               value={option}
               checked={selectedAnswer === option}
               onChange={() => handleAnswerOptionClick(option)}
+              id={index}
             />
-            <label>{option}</label>
+            <Label for={index} className="mb-0">{option}</Label>
           </ListGroupItem>
         ))}
       </ListGroup>

@@ -3,6 +3,7 @@ import Question from "./Question";
 import Timer from "./Timer";
 import Result from "./Result";
 import StartPage from "./StartPage";
+import Swal from "sweetalert2";
 
 const questions = [
   {
@@ -75,14 +76,25 @@ export default function Quiz() {
   };
 
   const handleSubmit = () => {
-    let newScore = 0;
-    questions.forEach((question, index) => {
-      if (answers[index] === question.correct) {
-        newScore += 1;
+    Swal.fire({
+      title: "Do you want to submit the test?",
+      showCancelButton: true,
+      confirmButtonText: "Submit",
+      icon: "warning",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Submited!", "", "success");
+        let newScore = 0;
+        questions.forEach((question, index) => {
+          if (answers[index] === question.correct) {
+            newScore += 1;
+          }
+        });
+        setScore(newScore);
+        setShowResult(true);
       }
     });
-    setScore(newScore);
-    setShowResult(true);
   };
 
   return (
@@ -97,7 +109,7 @@ export default function Quiz() {
           />
         ) : (
           <>
-            <Timer duration={300} onTimeUp={handleSubmit} />
+            <Timer duration={120} onTimeUp={handleSubmit} />
             <Question
               question={questions[currentQuestion]}
               handleAnswerOptionClick={handleAnswerOptionClick}
