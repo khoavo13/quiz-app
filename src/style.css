@@ -1,0 +1,86 @@
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.start-page {
+  margin-top: 100px;
+}
+
+.start-page h1 {
+  font-size: 2em;
+}
+
+.start-page button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.question-section {
+  margin: 20px;
+}
+
+.question-text {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.answer-section {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.answer-section .answer-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.answer-section .answer-option:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.answer-section input[type="radio"] {
+  margin-right: 10px;
+}
+
+.navigation-buttons {
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  margin: 0 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.timer {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.result-section {
+  font-size: 20px;
+}
+
+.details-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.details-section .question-result {
+  margin-bottom: 15px;
+}
+
+.correct-answer {
+  color: green;
+  font-weight: bold;
+}
+
+.wrong-answer {
+  color: red;
+  font-weight: bold;
+}
